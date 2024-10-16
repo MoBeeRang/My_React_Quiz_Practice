@@ -15,7 +15,7 @@ function Quiz01() {
    const onChangeName = (e) => setInputName(e.target.value)
    const onChangeDept = (e) => setInputDept(e.target.value)
 
-   const onClick = () => {
+   const onClickAdd = () => {
       const nextEmployees = employees.concat({
          id: nextId,
          name: inputName,
@@ -26,7 +26,12 @@ function Quiz01() {
       setInputName('')
       setInputDept('')
    }
-
+   const onClickRemove = (e) => {
+      const nextEmployees = employees.filter((employee) => employee.dept !== inputDept )
+      setEmployees(nextEmployees)
+      setInputName('')
+      setInputDept('')
+   }
    const employeeList = employees.map((employee) => (
       <li key={employee.id}>
          사원명: {employee.name}, 부서: {employee.dept}
@@ -37,8 +42,10 @@ function Quiz01() {
       <>
          <input placeholder="사원 이름" value={inputName} onChange={onChangeName} />
          <input placeholder="부서" value={inputDept} onChange={onChangeDept} />
-         <button onClick={onClick}>추가</button>
+         <button onClick={onClickAdd}>추가</button>
          <br />
+          <input placeholder="부서" value={inputDept} onChange={onChangeDept} />
+         <button onClick={onClickRemove}>부서별 삭제</button>
          <ul>{employeeList}</ul>
       </>
    )
