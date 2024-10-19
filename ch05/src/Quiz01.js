@@ -10,10 +10,12 @@ function Quiz01() {
 
    const [inputName, setInputName] = useState('')
    const [inputDept, setInputDept] = useState('')
+   const [removeDept, setRemoveDept] = useState('')
    const [nextId, setNextId] = useState(5)
 
    const onChangeName = (e) => setInputName(e.target.value)
    const onChangeDept = (e) => setInputDept(e.target.value)
+   const onChangeRemoveDept = (e) => setRemoveDept(e.target.value)
 
    const onClickAdd = () => {
       const nextEmployees = employees.concat({
@@ -27,10 +29,9 @@ function Quiz01() {
       setInputDept('')
    }
    const onClickRemove = (e) => {
-      const nextEmployees = employees.filter((employee) => employee.dept !== inputDept )
+      const nextEmployees = employees.filter((employee) => employee.dept !== removeDept)
       setEmployees(nextEmployees)
-      setInputName('')
-      setInputDept('')
+      setRemoveDept('')
    }
    const employeeList = employees.map((employee) => (
       <li key={employee.id}>
@@ -44,7 +45,7 @@ function Quiz01() {
          <input placeholder="부서" value={inputDept} onChange={onChangeDept} />
          <button onClick={onClickAdd}>추가</button>
          <br />
-          <input placeholder="부서" value={inputDept} onChange={onChangeDept} />
+         <input placeholder="부서" value={removeDept} onChange={onChangeRemoveDept} />
          <button onClick={onClickRemove}>부서별 삭제</button>
          <ul>{employeeList}</ul>
       </>
