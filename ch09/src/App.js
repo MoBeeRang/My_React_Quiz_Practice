@@ -1,10 +1,9 @@
 import './App.css'
-import { Route, Routes, NavLink } from 'react-router-dom'
-import Category from './Category'
-import NewsList2 from './NewsList2'
-import NewsPage from './NewsPage'
 import './NavLink.css'
-
+import { Routes, Route, NavLink } from 'react-router-dom'
+import NewsList3 from './NewsList3'
+import Category from './Category'
+import NewsPage from './NewsPage'
 function App() {
    return (
       <div>
@@ -23,8 +22,7 @@ function App() {
          <Routes>
             <Route path="/" element={<NewsPage />} />
             <Route path="/category" element={<Category />} />
-            {/* 여기에 코드 작성 */}
-            <Route path="/*" element={'Not Found'} />
+            <Route path="/newsList/*" element={<NewsList3 />} />
          </Routes>
       </div>
    )

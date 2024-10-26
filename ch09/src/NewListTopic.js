@@ -7,20 +7,26 @@ var contents = [
 ]
 
 function NewsListTopic() {
-   var params = // 여기에 코드 작성
-   var topic_id = // 여기에 코드 작성
+   var params = useParams()
+   var topic_id = params.news_id
    var selected_topic = {
       title: 'Sorry',
       description: 'Not Found',
    }
    for (var i = 0; i < contents.length; i++) {
-      //   여기에 코드 작성
+      let cur_id = contents[i].id
+      if (topic_id == cur_id) {
+         selected_topic = {
+            title: contents[i].title,
+            description: contents[i].description
+         }
+      }
    }
 
    return (
       <div>
          <h3>{selected_topic.title}</h3>
-         //여기에 코드 작성
+         {selected_topic.description}
       </div>
    )
 }

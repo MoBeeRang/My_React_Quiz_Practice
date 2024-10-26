@@ -1,6 +1,7 @@
 import './App.css'
 import './NavLink.css'
 import { Routes, Route, NavLink } from 'react-router-dom'
+import 'NewsList'
 
 function NewsPage() {
    return <>기사내용...</>
@@ -13,17 +14,6 @@ function Category() {
          <li>엔터</li>
          <li>과학</li>
          <li>사회</li>
-      </ul>
-   )
-}
-function NewsList() {
-   return (
-      <ul>
-         <li>기사제목1</li>
-         <li>기사제목2</li>
-         <li>기사제목3</li>
-         <li>기사제목4</li>
-         <li>기사제목5</li>
       </ul>
    )
 }
