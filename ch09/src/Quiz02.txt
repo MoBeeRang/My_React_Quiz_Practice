@@ -1,0 +1,54 @@
+import './App.css'
+import './NavLink.css'
+import { Routes, Route, NavLink } from 'react-router-dom'
+
+function NewsPage() {
+   return <>기사내용...</>
+}
+
+function Category() {
+   return (
+      <ul>
+         <li>전체보기</li>
+         <li>엔터</li>
+         <li>과학</li>
+         <li>사회</li>
+      </ul>
+   )
+}
+function NewsList() {
+   return (
+      <ul>
+         <li>기사제목1</li>
+         <li>기사제목2</li>
+         <li>기사제목3</li>
+         <li>기사제목4</li>
+         <li>기사제목5</li>
+      </ul>
+   )
+}
+function App() {
+   return (
+      <div>
+         <h1>리액트 라우터</h1>
+         <ul>
+            <li>
+               <NavLink to="/">NewsPage</NavLink>
+            </li>
+            <li>
+               <NavLink to="/category">Category</NavLink>
+            </li>
+            <li>
+               <NavLink to="/newsList">NewsList</NavLink>
+            </li>
+         </ul>
+         <Routes>
+            <Route path="/" element={<NewsPage />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/newsList" element={<NewsList />} />
+         </Routes>
+      </div>
+   )
+}
+
+export default App
