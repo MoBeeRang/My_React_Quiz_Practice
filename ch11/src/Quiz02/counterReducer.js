@@ -1,11 +1,14 @@
 const initialState = { count: 0 }
 
 function counterReducer(state = initialState, action) {
+   const newState = { ...state } //현재 state의 값만 복사해서 저장
    switch (action.type) {
       case 'increment':
-      // 여기에 코드 작성(숫자를 감소 시킴)
+         newState.count++
+         return newState
       case 'decrement':
-      // 여기에 코드 작성(숫자를 증가 시킴)
+         newState.count--
+         return newState
       default:
          return state
    }

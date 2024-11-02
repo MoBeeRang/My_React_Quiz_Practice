@@ -7,9 +7,9 @@ const initialState = []
 function reducer(state, action) {
    switch (action.type) {
       case 'add':
-         return // 여기에 코드 작성
+         return [...state, { id: action.id, text: action.text }]
       case 'delete':
-         return // 여기에 코드 작성
+         return state.filter((map) => map.id != action.id)
       default:
          return state
    }
@@ -17,18 +17,22 @@ function reducer(state, action) {
 
 const Quiz01 = () => {
    const [todos, dispatch] = useReducer(reducer, initialState)
+   const [nextId, setNextId] = useState(1)
    const [inputValue, setInputValue] = useState('')
 
    // 새로운 할 일 추가
    const handleAddTodo = () => {
       if (inputValue.trim()) {
-         //여기에 코드 작성
+         dispatch({ type: 'add', text: inputValue, id: nextId })
+         setInputValue('')
+         setNextId(nextId + 1)
       }
    }
 
    // 할 일 삭제
    const handleDeleteTodo = (id) => {
       //여기에 코드 작성
+      dispatch({ type: 'delete', id: id })
    }
 
    return (
