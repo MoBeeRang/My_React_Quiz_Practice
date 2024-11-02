@@ -23,6 +23,7 @@ function App() {
             <Route path="/" element={<NewsPage />} />
             <Route path="/category" element={<Category />} />
             <Route path="/newsList/*" element={<NewsList3 />} />
+            <Route path="/*" element={'not found'} />
          </Routes>
       </div>
    )

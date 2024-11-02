@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink ,useParams} from 'react-router-dom'
+import { Routes, Route, NavLink } from 'react-router-dom'
 import NewsListTopic from './NewListTopic'
 
 var contents = [
@@ -8,8 +8,6 @@ var contents = [
 ]
 
 function NewsList3() {
-
-
    var list = []
    for (var i = 0; i < contents.length; i++) {
       list.push(
@@ -22,7 +20,9 @@ function NewsList3() {
       <div>
          <h2>뉴스기사</h2>
          <ul>{list}</ul>
-         <Routes><Route path='/:news_id' element={ <NewsListTopic/>} /></Routes>
+         <Routes>
+            <Route path="/:news_id" element={<NewsListTopic contents={contents} />} />
+         </Routes>
       </div>
    )
 }
