@@ -1,13 +1,13 @@
 // 여기에 코드 구현
-function todoReducer(state = { todos: [] }, action) {
+const initialState = { todos: [] }
+function todoReducer(state = initialState, action) {
    switch (action.type) {
-      case 'add':
-         const newTodos = [...state, { id: action.id, text: action.value }]
-         return newTodos
-      case 'remove':
-         return state.filter((map) => map.id != action.id)
+      case 'addTodo':
+         return { todos: [...state.todos, { id: action.id, text: action.text }] }
+      case 'removeTodo':
+         return { todos: state.todos.filter((map) => map.id != action.id) }
       default:
-         return
+         return state
    }
 }
 
