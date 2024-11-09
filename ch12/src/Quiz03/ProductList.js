@@ -4,19 +4,21 @@ import { useState } from 'react'
 import { addProduct, removeProduct } from './productSlice'
 function ProductList() {
    const [inputValue, setInputValue] = useState('')
-   const productList = useSelector((state) => state.product.productList)
+   const productList = useSelector((state) => state.product)
    const dispatch = useDispatch()
    return (
       <div>
          <input
             type="text"
             placeholder="등록할 상품이름을 입력하세요"
+            value={inputValue}
             onChange={(e) => {
                setInputValue(e.target.value)
             }}
          ></input>
          <button
             onClick={() => {
+               setInputValue('')
                dispatch(addProduct(inputValue))
             }}
          >
